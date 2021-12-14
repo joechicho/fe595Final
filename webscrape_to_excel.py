@@ -193,11 +193,7 @@ df = pd.DataFrame({'Title': [ titles[0], titles[1], titles[2], titles[3], titles
 # In[52]:
 
 
-#df = pd.DataFrame({'Title': titleOne,titleTwo,titleThree,titleFour,titleFive,titleSix,titleSeven,titleEight,titleNine,titleTen,
-                  # 'Year': {yearOne,yearTwo,yearThree,yearFour,yearFive,yearSix,yearSeven,yearEight,yearNine,yearTen},
-                  # 'Source': {sourceOne,sourceTwo,sourceThree,sourceFour,sourceFive,sourceSix,sourceSeven,sourceEight,sourceNine,sourceTen},
-                 #  'URL': {urlOne,urlTwo,urlThree,urlFour,urlFive,urlSix,urlSeven,urlEight,urlNine,urlTen},
-                  #  'Body': {textOne,textTwo,textThree,textFour,textFive,textSix,textSeven,textEight,textNine,textTen}})
+#save as an excel file
 
 
 # In[53]:
