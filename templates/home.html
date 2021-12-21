@@ -1,0 +1,56 @@
+<head>
+    <title>FE595</title>
+<style>
+h1 {text-align: center;}
+h2 {text-align: center;}
+
+</style>
+</head>
+<h1 style="background-color:DodgerBlue;" style="font-size:70px;">FE595 Final Project</h1>
+
+<h2 style="border:2px solid DodgerBlue;" style="font-size:30px;">Work Group 7</h2>
+
+<h3 style="background-color:#10B1BF;">The page provides financial news articles.</h3>
+
+<p> Please fill in all fields</p>
+
+<h3 style="color:Tomato;">
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</h3>
+
+<form action="search" method="post">
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" value="">
+    <br>
+    <br>
+
+    <label for="startdate">Start year</label>
+    <input type="number" name="startdate" value="2019", min="2000", max="2020">
+
+
+    <label for="enddate">End year</label>
+    <input type="number" name="enddate" value="2021", min="2001", max="2021">
+    <br>
+    <br>
+
+
+    <label for="source">Choose a news source:</label>
+    <select name="source" id="source">
+        <option value="yahoo">Yahoo</option>
+        <option value="american">American</option>
+        <option value="wrachel">Wrachel Writes</option>
+        <option value="newsday">Newsday</option>
+        <option value="jumpstart">Jump Start Investing</option>
+        <option value="campfire">Camp Fire Finance</option>
+        <option value="reuters">Reuters</option>
+        <option value="business">Business Insider</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Search">
+
+</form>
+
+
