@@ -9,4 +9,5 @@ To build this search engine we took the following steps:
 3. Using python, we connected and created our table and its columns as seen in the PythonToDBConnection.py file
 4. Using the Excel file, we created a SQL Script workbook to more efficiently write out queries using an Excel formula (SQLScriptWorkbook.xlsx)
 5. Using the SQL Script Workbook, we uploaded the articles' data into our SQL Workbench (InputArticleData.sql)
-6. We created and connected the frontend to our cloud-hosted database by
+6. We created and connected the frontend to our cloud-hosted database by using flask and libraries like pymysql.
+
