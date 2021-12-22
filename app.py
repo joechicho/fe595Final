@@ -49,26 +49,34 @@ def search():
         source = info['source']
 
         cur = conn.cursor()
-        #cur.execute("SELECT link FROM ArticleData WHERE (title LIKE '%{}%' OR text LIKE '%{}%') AND year IN ({},{}) AND source = '{}';".format(text, text, sdate, edate, source))
-        #data = cur.fetchall()
+        cur.execute("SELECT link FROM ArticleData WHERE (title LIKE '%{}%' OR text LIKE '%{}%') AND year IN ({},{}) AND source = '{}';".format(text, text, sdate, edate, source))
+        data = cur.fetchall()
 
-        #credentials = "mysql://admin:group72021@final-project-fe595-group7.cz2xzj6pvabe.us-east-2.rds.amazonaws.com:3306/FinalprojectFE595Group7"
-        d1 = pd.read_sql("SELECT link FROM ArticleData WHERE (title LIKE '%{}%' OR text LIKE '%{}%') AND year IN ({},{}) AND source = '{}';".format(text, text, sdate, edate, source),con = conn)
+        mytuple = data
+        FULL_HTML = []
 
-        h1 = d1.shape[0]
-
-        if(h1==0):
+        if not mytuple:
             flash('No articles found in database, try another source.')
             return redirect(url_for('home'))
+
         else:
 
 
-            #html = d1.to_html(render_links=True, escape=False)
-            #text_file = open("templates/results.html", "w")
-            #text_file.write(html)
-            #text_file.close()
+            for name, rows in groupby(mytuple, itemgetter(0)):
+                table = []
 
-            return render_template('results.html', name = d1)
+                for name, value1 in rows:
+
+                    table.append(
+                        "<tr><td><a href={}>{}</a></td></tr>".format(
+                            value1, name))
+
+                table = "<table border: 1>\n{}\n</table>".format('\n'.join(table))
+                FULL_HTML.append(table)
+
+            FULL_HTML = "<html>\n{}\n</html>".format('\n'.join(FULL_HTML))
+
+            return FULL_HTML
 
     else:
         return redirect(url_for('home'))
