@@ -63,12 +63,12 @@ def search():
         else:
 
 
-            html = d1.to_html(render_links=True, escape=False)
-            text_file = open("templates/results.html", "w")
-            text_file.write(html)
-            text_file.close()
+            #html = d1.to_html(render_links=True, escape=False)
+            #text_file = open("templates/results.html", "w")
+            #text_file.write(html)
+            #text_file.close()
 
-            return render_template('results.html')
+            return render_template('results.html', name = d1)
 
     else:
         return redirect(url_for('home'))
