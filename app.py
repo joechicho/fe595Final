@@ -51,7 +51,7 @@ def search():
         source = info['source']
 
         cur = conn.cursor()
-        cur.execute("SELECT link FROM ArticleData WHERE (title LIKE '%{}%' OR text LIKE '%{}%') AND year IN ({},{}) AND source = '{}';".format(text, text, sdate, edate, source))
+        cur.execute("SELECT title, link FROM ArticleData WHERE (title LIKE '%{}%' OR text LIKE '%{}%') AND year IN ({},{}) AND source = '{}';".format(text, text, sdate, edate, source))
         data = cur.fetchall()
 
         mytuple = data
